@@ -10,11 +10,14 @@ public class PickUps : MonoBehaviour
     [SerializeField] private bool spawnPelletAllowed;
     [SerializeField] private float powerUpTime;
     [SerializeField] private float wacManPowerUpTime;
+
     public int pelletCount;
+    public int pickUps;
+    public int powerUps;
+
     public bool wacManPoweredUp;
     public bool playerPoweredUp;
-    public int pickUps;
-   
+
     public void Awake()
     {
         
@@ -25,12 +28,13 @@ public class PickUps : MonoBehaviour
     }
     public void Update()
     {
-        pickUps.ToString("Total Pick Ups" + pickUps);
+        //pickUps.ToString("Total Pick Ups" + pickUps);
 
         Toolbox.Instance.m_enemy.wacManPoweredUp = wacManPoweredUp;
         Toolbox.Instance.m_enemy.playerPoweredUp = playerPoweredUp;
         Toolbox.Instance.m_PlayerManager.nbPellets = pelletCount;
         Toolbox.Instance.m_PlayerManager.nbPickUps = pickUps;
+        Toolbox.Instance.m_PlayerManager.nbPickUps = powerUps;
         if (wacManPoweredUp)
         {
             Toolbox.Instance.m_enemy.wacManPoweredUp = true;
@@ -50,9 +54,7 @@ public class PickUps : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-           // pickUps += 1;
-            //Toolbox.Instance.m_PlayerManager.nbPickUps += 1;
-            //Debug.Log("PickUps:" + pickUps);
+           
             if (spawnPelletAllowed == true && gameObject.tag=="PowerUp")
             {
                 Instantiate(powerUpPrefab, new Vector3(Random.Range(-25,25), Random.Range(1.75f,10), Random.Range(-25,25)), powerUpPrefab.transform.rotation);
@@ -61,8 +63,8 @@ public class PickUps : MonoBehaviour
             }
             else if (spawnPelletAllowed == true && gameObject.tag == "Pellet")
             {
-                Toolbox.Instance.m_PlayerManager.nbPellets+= 1;
-                pickUps += 1;
+                pelletCount += 1;
+
                 Debug.Log("Pellet consumed.");
             }
             Destroy(gameObject);
@@ -71,8 +73,7 @@ public class PickUps : MonoBehaviour
         {
             wacManPoweredUp = true;
             collision.gameObject.GetComponent<Renderer>().material.SetColor("white", Color.white);
-            pickUps+=1;
-            Toolbox.Instance.m_PlayerManager.nbPickUps += 1;
+            powerUps += 1;
             Debug.Log("WacMan PowerUp Activated, Total PickUps:" + pickUps);
             Instantiate(powerUpPrefab, new Vector3(Random.Range(-25, 25), Random.Range(1.75f, 5), Random.Range(-25, 25)), powerUpPrefab.transform.rotation);
             
@@ -82,12 +83,13 @@ public class PickUps : MonoBehaviour
         }
         if (gameObject.tag =="PowerUp" && collision.gameObject.tag == "Player")
         {
+            powerUps += 1;
             Toolbox.Instance.m_enemy.playerPoweredUp = true;
-            //playerPoweredUp = true;
+            playerPoweredUp = true;
             collision.gameObject.GetComponent<Renderer>().material.SetColor("green", Color.green);
-            pickUps += 1;
-            //Toolbox.Instance.m_PlayerManager.nbPickUps += 1;
-            Debug.Log("Player PowerUp Activated, Total PickUps:" + pickUps/*.ToString("TotalPickUps")*/);
+
+            Toolbox.Instance.m_PlayerManager.nbPowerUps += 1;
+            Debug.Log("Player PowerUp Activated");
            
             powerUpTime = Time.time;
 

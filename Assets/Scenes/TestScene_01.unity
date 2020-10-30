@@ -1156,7 +1156,7 @@ PrefabInstance:
     - target: {fileID: 2285245689369685972, guid: ebb4c4fb4e93c804eb7392e13c12d683,
         type: 3}
       propertyPath: m_RootOrder
-      value: 271
+      value: 268
       objectReference: {fileID: 0}
     - target: {fileID: 2285245689369685972, guid: ebb4c4fb4e93c804eb7392e13c12d683,
         type: 3}
@@ -2608,7 +2608,7 @@ PrefabInstance:
     - target: {fileID: 2285245689369685972, guid: ebb4c4fb4e93c804eb7392e13c12d683,
         type: 3}
       propertyPath: m_RootOrder
-      value: 266
+      value: 263
       objectReference: {fileID: 0}
     - target: {fileID: 2285245689369685972, guid: ebb4c4fb4e93c804eb7392e13c12d683,
         type: 3}
@@ -3843,7 +3843,7 @@ PrefabInstance:
     - target: {fileID: 2285245689369685972, guid: ebb4c4fb4e93c804eb7392e13c12d683,
         type: 3}
       propertyPath: m_RootOrder
-      value: 272
+      value: 269
       objectReference: {fileID: 0}
     - target: {fileID: 2285245689369685972, guid: ebb4c4fb4e93c804eb7392e13c12d683,
         type: 3}
@@ -4255,7 +4255,7 @@ PrefabInstance:
     - target: {fileID: 2285245689369685972, guid: ebb4c4fb4e93c804eb7392e13c12d683,
         type: 3}
       propertyPath: m_RootOrder
-      value: 270
+      value: 267
       objectReference: {fileID: 0}
     - target: {fileID: 2285245689369685972, guid: ebb4c4fb4e93c804eb7392e13c12d683,
         type: 3}
@@ -4330,7 +4330,7 @@ PrefabInstance:
     - target: {fileID: 2285245689369685972, guid: ebb4c4fb4e93c804eb7392e13c12d683,
         type: 3}
       propertyPath: m_RootOrder
-      value: 261
+      value: 258
       objectReference: {fileID: 0}
     - target: {fileID: 2285245689369685972, guid: ebb4c4fb4e93c804eb7392e13c12d683,
         type: 3}
@@ -5863,7 +5863,7 @@ PrefabInstance:
     - target: {fileID: 2285245689369685972, guid: ebb4c4fb4e93c804eb7392e13c12d683,
         type: 3}
       propertyPath: m_RootOrder
-      value: 269
+      value: 266
       objectReference: {fileID: 0}
     - target: {fileID: 2285245689369685972, guid: ebb4c4fb4e93c804eb7392e13c12d683,
         type: 3}
@@ -5938,7 +5938,7 @@ PrefabInstance:
     - target: {fileID: 2285245689369685972, guid: ebb4c4fb4e93c804eb7392e13c12d683,
         type: 3}
       propertyPath: m_RootOrder
-      value: 258
+      value: 255
       objectReference: {fileID: 0}
     - target: {fileID: 2285245689369685972, guid: ebb4c4fb4e93c804eb7392e13c12d683,
         type: 3}
@@ -7116,7 +7116,7 @@ PrefabInstance:
     - target: {fileID: 2285245689369685972, guid: ebb4c4fb4e93c804eb7392e13c12d683,
         type: 3}
       propertyPath: m_RootOrder
-      value: 265
+      value: 262
       objectReference: {fileID: 0}
     - target: {fileID: 2285245689369685972, guid: ebb4c4fb4e93c804eb7392e13c12d683,
         type: 3}
@@ -8035,7 +8035,7 @@ PrefabInstance:
     - target: {fileID: 2285245689369685972, guid: ebb4c4fb4e93c804eb7392e13c12d683,
         type: 3}
       propertyPath: m_RootOrder
-      value: 268
+      value: 265
       objectReference: {fileID: 0}
     - target: {fileID: 2285245689369685972, guid: ebb4c4fb4e93c804eb7392e13c12d683,
         type: 3}
@@ -8717,7 +8717,7 @@ PrefabInstance:
     - target: {fileID: 2285245689369685972, guid: ebb4c4fb4e93c804eb7392e13c12d683,
         type: 3}
       propertyPath: m_RootOrder
-      value: 263
+      value: 260
       objectReference: {fileID: 0}
     - target: {fileID: 2285245689369685972, guid: ebb4c4fb4e93c804eb7392e13c12d683,
         type: 3}
@@ -9380,7 +9380,7 @@ PrefabInstance:
     - target: {fileID: 2285245689369685972, guid: ebb4c4fb4e93c804eb7392e13c12d683,
         type: 3}
       propertyPath: m_RootOrder
-      value: 267
+      value: 264
       objectReference: {fileID: 0}
     - target: {fileID: 2285245689369685972, guid: ebb4c4fb4e93c804eb7392e13c12d683,
         type: 3}
@@ -19615,7 +19615,7 @@ PrefabInstance:
     - target: {fileID: 2285245689369685972, guid: ebb4c4fb4e93c804eb7392e13c12d683,
         type: 3}
       propertyPath: m_RootOrder
-      value: 260
+      value: 257
       objectReference: {fileID: 0}
     - target: {fileID: 2285245689369685972, guid: ebb4c4fb4e93c804eb7392e13c12d683,
         type: 3}
@@ -25073,6 +25073,31 @@ Rigidbody:
     type: 3}
   m_PrefabInstance: {fileID: 3412880548166117770}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1551171950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551171945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a5cabe707433534599f6d24b36e9045, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pelletPrefab: {fileID: 2285245689369685983, guid: ebb4c4fb4e93c804eb7392e13c12d683,
+    type: 3}
+  powerUpPrefab: {fileID: 3886169537750726063, guid: 054c3ea04226a3b4b974f29f114d67f1,
+    type: 3}
+  spawnTransform: {fileID: 1115909620}
+  spawnPelletAllowed: 0
+  powerUpTime: 0
+  wacManPowerUpTime: 0
+  pelletCount: 0
+  pickUps: 0
+  powerUps: 0
+  wacManPoweredUp: 0
+  playerPoweredUp: 0
 --- !u!1001 &1557200861
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25650,7 +25675,7 @@ PrefabInstance:
     - target: {fileID: 2285245689369685972, guid: ebb4c4fb4e93c804eb7392e13c12d683,
         type: 3}
       propertyPath: m_RootOrder
-      value: 262
+      value: 259
       objectReference: {fileID: 0}
     - target: {fileID: 2285245689369685972, guid: ebb4c4fb4e93c804eb7392e13c12d683,
         type: 3}
@@ -26743,6 +26768,7 @@ MonoBehaviour:
   m_enemy: {fileID: 2767335747740873716}
   m_EnemyManager: {fileID: 495225205890211021}
   cameraState: 0
+  pelletCount: 0
   playerPoweredUp: 0
   wacManPoweredUp: 0
 --- !u!4 &1697003810
@@ -29724,7 +29750,7 @@ PrefabInstance:
     - target: {fileID: 2285245689369685972, guid: ebb4c4fb4e93c804eb7392e13c12d683,
         type: 3}
       propertyPath: m_RootOrder
-      value: 259
+      value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 2285245689369685972, guid: ebb4c4fb4e93c804eb7392e13c12d683,
         type: 3}
@@ -31162,9 +31188,10 @@ MonoBehaviour:
   powerUpTime: 0
   wacManPowerUpTime: 0
   pelletCount: 0
+  pickUps: 0
+  powerUps: 0
   wacManPoweredUp: 0
   playerPoweredUp: 0
-  pickUps: 0
 --- !u!4 &1987554618
 Transform:
   m_ObjectHideFlags: 0
@@ -31524,7 +31551,7 @@ PrefabInstance:
     - target: {fileID: 2285245689369685972, guid: ebb4c4fb4e93c804eb7392e13c12d683,
         type: 3}
       propertyPath: m_RootOrder
-      value: 264
+      value: 261
       objectReference: {fileID: 0}
     - target: {fileID: 2285245689369685972, guid: ebb4c4fb4e93c804eb7392e13c12d683,
         type: 3}

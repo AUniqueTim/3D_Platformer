@@ -12,6 +12,7 @@ public class Toolbox : MonoBehaviour
     public Enemy m_enemy;
     public EnemyManager m_EnemyManager;
     public int cameraState;
+    public int pelletCount;
 
     public bool playerPoweredUp;
     public bool wacManPoweredUp;
@@ -43,6 +44,7 @@ public class Toolbox : MonoBehaviour
     }
     public void Update()
     {
+        pelletCount = m_pickUps.pelletCount;
         playerPoweredUp = m_pickUps.playerPoweredUp;
         wacManPoweredUp = m_pickUps.wacManPoweredUp;
     }

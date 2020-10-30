@@ -3,7 +3,12 @@ guid: 4a5cabe707433534599f6d24b36e9045
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - pelletPrefab: {fileID: 2285245689369685983, guid: ebb4c4fb4e93c804eb7392e13c12d683,
+      type: 3}
+  - powerUpPrefab: {fileID: 3886169537750726063, guid: 054c3ea04226a3b4b974f29f114d67f1,
+      type: 3}
+  - spawnTransform: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

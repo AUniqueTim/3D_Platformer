@@ -67,6 +67,8 @@
     <Compile Include="Assets\Tutorial_Info\Scripts\Readme.cs" />
     <Compile Include="Assets\Scripts\MouseLook.cs" />
     <Compile Include="Assets\Scripts\DiceRoll.cs" />
+    <Compile Include="Assets\Scripts\BulletTrap.cs" />
+    <Compile Include="Assets\Scripts\CountdownTimer.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

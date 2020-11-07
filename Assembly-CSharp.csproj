@@ -52,6 +52,7 @@
     <UnityVersion>2020.1.5f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\BulletTrap.cs" />
     <Compile Include="Assets\Scripts\CameraLookAtTarget.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\Toolbox.cs" />
@@ -63,12 +64,11 @@
     <Compile Include="Assets\Scripts\EnemyManager.cs" />
     <Compile Include="Assets\Scripts\PlatformerController.cs" />
     <Compile Include="Assets\Scripts\PickUps.cs" />
+    <Compile Include="Assets\Scripts\CountdownTimer.cs" />
     <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
     <Compile Include="Assets\Tutorial_Info\Scripts\Readme.cs" />
     <Compile Include="Assets\Scripts\MouseLook.cs" />
     <Compile Include="Assets\Scripts\DiceRoll.cs" />
-    <Compile Include="Assets\Scripts\BulletTrap.cs" />
-    <Compile Include="Assets\Scripts\CountdownTimer.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

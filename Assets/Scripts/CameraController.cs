@@ -8,9 +8,7 @@ public class CameraController : MonoBehaviour
     public Camera topCamera;
     public Camera backCamera;
 
-    public static int CameraState;
-    
-
+    public int CameraState;
     
     void Start()
     {

@@ -47,23 +47,42 @@ public class Bullet : MonoBehaviour
     //    //particle effect.
     //}
 
+    [SerializeField] private GameObject wacMan;
+    
+
+
     public void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            //lose health, particle effect.
+            Toolbox.Instance.m_PlayerManager.playerLives -= 1;
+            //particle effect.
             Debug.Log("Bullet hit Player.");
+            gameObject.SetActive(false);
+            Toolbox.Instance.m_BulletTrap.bulletInstantiated = false;
+            Toolbox.Instance.m_BulletTrap.SpawnBullet();
         }
         else if (collision.gameObject.tag == "WacMan")
         {
-            //Spawn new WacMan
-            Destroy(gameObject); //particle effect.
+            wacMan.transform.position = new Vector3(Random.Range(-100, 100), 0);
+            gameObject.SetActive(false);//Destroy(gameObject); //particle effect.
             Debug.Log("Bullet hit WacMan.");
+            Toolbox.Instance.m_BulletTrap.bulletInstantiated = false;
+            Toolbox.Instance.m_BulletTrap.SpawnBullet();
         }
-        else if (collision.gameObject)
+        else if (collision.gameObject.tag == "WorldGeometry")
         {
-            Destroy(gameObject); //Particle Effect.
-        }
+            Toolbox.Instance.m_BulletTrap.bulletInstantiated = false;
+            Toolbox.Instance.m_BulletTrap.SpawnBullet();
+            gameObject.SetActive(false);
+        } 
+        //else if (collision.gameObject)
+        //{
+           
+        //    Toolbox.Instance.m_BulletTrap.bulletInstantiated = false;
+        //    Toolbox.Instance.m_BulletTrap.SpawnBullet();
+        //    gameObject.SetActive(false);//Destroy(gameObject); //Particle Effect.
+        //}
 
     }
 }

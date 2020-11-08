@@ -362,18 +362,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0d528228fd40eb458a7477afd92f412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wacMan: {fileID: 8967186177231067308}
   layerMask:
     serializedVersion: 2
     m_Bits: 512
   player: {fileID: 0}
   enemySpeed: 0
+  originalEnemySpeed: 0
   enemyFollowOffset: {x: 0, y: 0, z: 0}
   originalDistance: 0
   playerDetectionDistanceFloat: 10
   wacManPoweredUp: 0
   wacManPowerUpTime: 5
   playerPoweredUp: 0
-  playerLives: 0
+  playerLives: 3
 --- !u!114 &7606260679056266178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -387,6 +389,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpeed: 10
+  wacManLives: 3
+  wacMan: {fileID: 8967186177231067308}
 --- !u!54 &8376658786366921256
 Rigidbody:
   m_ObjectHideFlags: 0

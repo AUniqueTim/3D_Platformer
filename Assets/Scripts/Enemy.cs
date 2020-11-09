@@ -54,12 +54,15 @@ public class Enemy : MonoBehaviour
         Ray playerDistanceRay = new Ray(transform.position, direction.normalized * playerDetectionDistanceFloat);
         Ray playerDetectionDistance = new Ray(transform.position, Vector3.forward.normalized * playerDetectionDistanceFloat);
         Ray powerUpDetectionRay = new Ray(powerUpPrefabClone.gameObject.transform.position, directiontoPowerUp.normalized * distanceToPowerUp);
-        Ray pelletDetectionRay = new Ray();
+        
 
         Debug.DrawRay(playerDistanceRay.origin, playerDistanceRay.direction * distance, Color.cyan, 1f);
         //gameObject.transform.Translate(playerDistanceRay.direction * enemySpeed * Time.deltaTime);  //This line chases player.
         gameObject.transform.Translate(powerUpDetectionRay.direction * enemySpeed * Time.deltaTime);// This line chases (FIRST ONLY) PowerUp.
-
+        if (gameObject.tag == "PowerUp")
+        {
+            powerUpPrefabClone = gameObject;
+        }
 
         Debug.DrawRay(playerDetectionDistance.origin, Vector3.forward.normalized * distance, Color.green);
         Debug.DrawRay(playerDistanceRay.origin, direction.normalized * distance, Color.red);
@@ -93,7 +96,7 @@ public class Enemy : MonoBehaviour
            
             if (enemySpeed <= -10)
                 {
-                    enemySpeed = 1;
+                    enemySpeed = 10;
                 }
         }
 

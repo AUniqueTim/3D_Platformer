@@ -56,21 +56,24 @@
     <Compile Include="Assets\Scripts\CameraLookAtTarget.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\Toolbox.cs" />
-    <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\corrupt scripts\CameraController_corrupt.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\CameraFollowTarget.cs" />
     <Compile Include="Assets\Scripts\RayCastExample.cs" />
     <Compile Include="Assets\Scripts\PlayerManager.cs" />
-    <Compile Include="Assets\Scripts\EnemyManager.cs" />
-    <Compile Include="Assets\Scripts\PlatformerController.cs" />
+    <Compile Include="Assets\Scripts\corrupt scripts\EnemyManager_corrupt.cs" />
+    <Compile Include="Assets\Scripts\corrupt scripts\PlatformerController.cs" />
     <Compile Include="Assets\Scripts\PickUps.cs" />
     <Compile Include="Assets\Scripts\CountdownTimer.cs" />
+    <Compile Include="Assets\MainCanvasUI.cs" />
     <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
     <Compile Include="Assets\Tutorial_Info\Scripts\Readme.cs" />
-    <Compile Include="Assets\Scripts\MouseLook.cs" />
-    <Compile Include="Assets\Scripts\DiceRoll.cs" />
-    <Compile Include="Assets\MainCanvasUI.cs" />
     <Compile Include="Assets\HighScore.cs" />
+    <Compile Include="Assets\Scripts\PlatformerController1.cs" />
+    <Compile Include="Assets\Scripts\EnemyManager1.cs" />
+    <Compile Include="Assets\Scripts\MouseLook.cs" />
+    <Compile Include="Assets\Scripts\CameraController1.cs" />
+    <Compile Include="Assets\Scripts\DiceRoll.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

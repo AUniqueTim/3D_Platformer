@@ -3,7 +3,21 @@ guid: 4674da9014b90034b96be9bd82a3c5e5
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - m_Bullet: {fileID: 6626163567790941179, guid: 82d69a0a71800ad42b1b864f545d5b80,
+      type: 3}
+  - m_pickUps: {fileID: 2285245689369685976, guid: ebb4c4fb4e93c804eb7392e13c12d683,
+      type: 3}
+  - m_PlatformerController: {fileID: 7000868916203122005, guid: bd676ca1ecfcaa64a98caaf1eb5a9201,
+      type: 3}
+  - m_PlayerManager: {fileID: 7000868916203121967, guid: bd676ca1ecfcaa64a98caaf1eb5a9201,
+      type: 3}
+  - m_CameraController: {fileID: 1032676629575782199, guid: 08e114597b65bf744ae2c96daec64e81,
+      type: 3}
+  - m_enemy: {fileID: 5275461504309263611, guid: 1dbc3af12814d414989b886252909101,
+      type: 3}
+  - m_EnemyManager: {fileID: 7606260679056266178, guid: 1dbc3af12814d414989b886252909101,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

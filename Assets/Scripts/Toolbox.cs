@@ -5,14 +5,18 @@ using UnityEngine;
 public class Toolbox : MonoBehaviour
 {
     public Bullet m_Bullet;
+    public BulletTrap m_BulletTrap;
     public PickUps m_pickUps;
     public PlatformerController m_PlatformerController;
     public PlayerManager m_PlayerManager;
     public CameraController m_CameraController;
     public Enemy m_enemy;
     public EnemyManager m_EnemyManager;
+    public MainCanvasUI m_MainCanvasUI;
+    public HighScore m_HighScore;
     public int cameraState;
-    public int pelletCount;
+    //public int pelletCount;
+    //public int pickUpCount;
 
     public bool playerPoweredUp;
     public bool wacManPoweredUp;
@@ -39,13 +43,16 @@ public class Toolbox : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        cameraState = CameraController.CameraState;
+        cameraState = m_CameraController.CameraState;
         
     }
     public void Update()
     {
-        pelletCount = m_pickUps.pelletCount;
-        playerPoweredUp = m_pickUps.playerPoweredUp;
-        wacManPoweredUp = m_pickUps.wacManPoweredUp;
+
+        cameraState = m_CameraController.CameraState;
+        //pelletCount = m_pickUps.pelletCount;
+        //pickUpCount = m_pickUps.pickUps;
+        playerPoweredUp = m_PlayerManager.playerPoweredUp;
+        wacManPoweredUp = m_PlayerManager.wacManPoweredUp;
     }
 }

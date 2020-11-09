@@ -48,21 +48,21 @@ public class PlatformerController : MonoBehaviour
     {
 
         //Player Transform Translation.
-        if (CameraController.CameraState == 1)
+        if (Toolbox.Instance.m_CameraController.CameraState == 1)
         {
             if (Input.GetKey(KeyCode.D)) { transform.Translate(Vector3.right * playerSpeed * Time.deltaTime); }  //FORWARD
             if (Input.GetKey(KeyCode.A)) { transform.Translate(Vector3.left * playerSpeed * Time.deltaTime); }  //BACK
             if (Input.GetKey(KeyCode.W)) { transform.Translate(Vector3.forward * playerSpeed * Time.deltaTime); }  //Z-AXIS POSITIVE
             if (Input.GetKey(KeyCode.S)) { transform.Translate(Vector3.back * playerSpeed * Time.deltaTime); }  //Z-AXIS NEGATIVE
         }
-        else if (CameraController.CameraState == 2)
+        else if (Toolbox.Instance.m_CameraController.CameraState == 2)
         {
             if (Input.GetKey(KeyCode.W)) { transform.Translate(Vector3.right * playerSpeed * Time.deltaTime); }  //FORWARD
             if (Input.GetKey(KeyCode.S)) { transform.Translate(Vector3.left * playerSpeed * Time.deltaTime); }  //BACK
             if (Input.GetKey(KeyCode.A)) { transform.Translate(Vector3.forward * playerSpeed * Time.deltaTime); }  //Z-AXIS POSITIVE
             if (Input.GetKey(KeyCode.D)) { transform.Translate(Vector3.back * playerSpeed * Time.deltaTime); }  //Z-AXIS NEGATIVE
         }
-        else if (CameraController.CameraState == 3)
+        else if (Toolbox.Instance.m_CameraController.CameraState == 3)
         {
             if (Input.GetKey(KeyCode.W)) { transform.Translate(Vector3.right * playerSpeed * Time.deltaTime); }  //FORWARD
             if (Input.GetKey(KeyCode.S)) { transform.Translate(Vector3.left * playerSpeed * Time.deltaTime); }  //BACK

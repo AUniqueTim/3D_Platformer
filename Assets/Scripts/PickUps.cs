@@ -6,6 +6,7 @@ public class PickUps : MonoBehaviour
 {
     [SerializeField] GameObject pelletPrefab;
     [SerializeField] GameObject powerUpPrefab;
+    public GameObject powerUpPrefabClone;
     [SerializeField] Transform spawnTransform;
     [SerializeField] private bool spawnPelletAllowed;
     [SerializeField] private float powerUpTime;
@@ -63,7 +64,8 @@ public class PickUps : MonoBehaviour
            
             if (spawnPelletAllowed == true && gameObject.tag=="PowerUp")
             {
-                Instantiate(powerUpPrefab, new Vector3(Random.Range(-25,25), Random.Range(1.75f,10), Random.Range(-25,25)), powerUpPrefab.transform.rotation);
+                powerUpPrefabClone = Instantiate(powerUpPrefab, new Vector3(Random.Range(-25,25), Random.Range(1.75f,10), Random.Range(-25,25)), powerUpPrefab.transform.rotation);
+                
                 //pickUps += 1;
                 Toolbox.Instance.m_PlayerManager.nbPowerUps += 1;
                 //pickedUpPowerUp = true;
@@ -77,7 +79,7 @@ public class PickUps : MonoBehaviour
 
                 //pelletCount += 1;
                 //pickedUpPellet = true;
-
+                Toolbox.Instance.m_HighScore.points += 10;
                 Debug.Log("Pellet consumed.");
                 gameObject.SetActive(false);
 
@@ -92,7 +94,7 @@ public class PickUps : MonoBehaviour
             collision.gameObject.GetComponent<Renderer>().material.SetColor("white", Color.white);
             
             Debug.Log("WacMan PowerUp Activated, Total PickUps:" + Toolbox.Instance.m_PlayerManager.nbPickUps);
-            Instantiate(powerUpPrefab, new Vector3(Random.Range(-25, 25), Random.Range(1.75f, 5), Random.Range(-25, 25)), powerUpPrefab.transform.rotation);
+            powerUpPrefabClone = Instantiate(powerUpPrefab, new Vector3(Random.Range(-25, 25), Random.Range(1.75f, 5), Random.Range(-25, 25)), powerUpPrefab.transform.rotation);
 
             //powerUpTime = Time.time;
 

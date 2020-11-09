@@ -12,6 +12,8 @@ public class Toolbox : MonoBehaviour
     public CameraController m_CameraController;
     public Enemy m_enemy;
     public EnemyManager m_EnemyManager;
+    public MainCanvasUI m_MainCanvasUI;
+    public HighScore m_HighScore;
     public int cameraState;
     //public int pelletCount;
     //public int pickUpCount;
@@ -50,7 +52,7 @@ public class Toolbox : MonoBehaviour
         cameraState = m_CameraController.CameraState;
         //pelletCount = m_pickUps.pelletCount;
         //pickUpCount = m_pickUps.pickUps;
-        playerPoweredUp = m_pickUps.playerPoweredUp;
-        wacManPoweredUp = m_pickUps.wacManPoweredUp;
+        playerPoweredUp = m_PlayerManager.playerPoweredUp;
+        wacManPoweredUp = m_PlayerManager.wacManPoweredUp;
     }
 }

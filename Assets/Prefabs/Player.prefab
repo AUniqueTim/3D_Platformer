@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 548499438784199981}
   - component: {fileID: 548499438784199980}
   - component: {fileID: 548499438784199983}
+  - component: {fileID: 285312861}
   m_Layer: 0
   m_Name: BackCamera
   m_TagString: MainCamera
@@ -176,6 +177,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 548499439262558878}
+--- !u!135 &285312861
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548499438784199982}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &548499439031731875
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,6 +398,7 @@ MonoBehaviour:
   wacManPoweredUp: 0
   playerPowerUpTime: 10
   playerLives: 3
+  oneUps: {fileID: 0}
   winPanel: {fileID: 0}
   losePanel: {fileID: 0}
   wacMan: {fileID: 0}

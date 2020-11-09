@@ -23,7 +23,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private GameObject losePanel;
     [SerializeField] private GameObject wacMan;
 
-    
+    public bool pickedUpPellet;
+
 
 
 
@@ -99,7 +100,7 @@ public class PlayerManager : MonoBehaviour
     }
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Pellet") { nbPellets += 1; }
+        if (collision.gameObject.tag == "Pellet") { nbPellets += 1; pickedUpPellet = true; pickedUpPellet = false; }
         
         if (collision.gameObject.tag == "PowerUp") { nbPowerUps += 1; }
     }

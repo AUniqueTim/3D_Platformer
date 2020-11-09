@@ -367,15 +367,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   player: {fileID: 0}
+  powerUp: {fileID: 0}
   enemySpeed: 0
   originalEnemySpeed: 0
   enemyFollowOffset: {x: 0, y: 0, z: 0}
   originalDistance: 0
   playerDetectionDistanceFloat: 10
+  distanceToPowerUp: 0
+  distance: 0
   wacManPoweredUp: 0
   wacManPowerUpTime: 5
   playerPoweredUp: 0
   playerLives: 3
+  collidingWithPlayer: 0
 --- !u!114 &7606260679056266178
 MonoBehaviour:
   m_ObjectHideFlags: 0

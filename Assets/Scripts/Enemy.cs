@@ -4,12 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    //Raycast forward follow at speed until raycast length less than minimum.
-    //Adjust rotation when too close to an object.
-    //Cast new ray to follow.
-
-    //On Player Sight, turn off Raycast, follow player, slowly increasing speed
-    // Unless Player == PowerUpped, in which cast leave raycast on (continue patrol).
+    
 
     [SerializeField] private GameObject wacMan;
     [SerializeField] private LayerMask layerMask;
@@ -59,7 +54,7 @@ public class Enemy : MonoBehaviour
         Ray playerDistanceRay = new Ray(transform.position, direction.normalized * playerDetectionDistanceFloat);
         Ray playerDetectionDistance = new Ray(transform.position, Vector3.forward.normalized * playerDetectionDistanceFloat);
         Ray powerUpDetectionRay = new Ray(powerUpPrefabClone.gameObject.transform.position, directiontoPowerUp.normalized * distanceToPowerUp);
-       // Ray pelletDetectionRay = new Ray (gameObject.tag="Pellet")
+        Ray pelletDetectionRay = new Ray();
 
         Debug.DrawRay(playerDistanceRay.origin, playerDistanceRay.direction * distance, Color.cyan, 1f);
         //gameObject.transform.Translate(playerDistanceRay.direction * enemySpeed * Time.deltaTime);  //This line chases player.

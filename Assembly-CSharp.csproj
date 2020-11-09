@@ -65,12 +65,12 @@
     <Compile Include="Assets\Scripts\PlatformerController.cs" />
     <Compile Include="Assets\Scripts\PickUps.cs" />
     <Compile Include="Assets\Scripts\CountdownTimer.cs" />
+    <Compile Include="Assets\MainCanvasUI.cs" />
     <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
     <Compile Include="Assets\Tutorial_Info\Scripts\Readme.cs" />
+    <Compile Include="Assets\HighScore.cs" />
     <Compile Include="Assets\Scripts\MouseLook.cs" />
     <Compile Include="Assets\Scripts\DiceRoll.cs" />
-    <Compile Include="Assets\MainCanvasUI.cs" />
-    <Compile Include="Assets\HighScore.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

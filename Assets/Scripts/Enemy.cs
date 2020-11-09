@@ -149,6 +149,11 @@ public class Enemy : MonoBehaviour
         }
         else { collidingWithPlayer = false; }
 
+        if (collision.gameObject.tag == "WorldGeometry")
+        {
+            transform.Rotate(0, 90, 0);
+        }
+
         if (collision.gameObject.tag=="Player" && playerPoweredUp && !wacManPoweredUp)
         {
             Toolbox.Instance.m_EnemyManager.wacManLives -= 1;

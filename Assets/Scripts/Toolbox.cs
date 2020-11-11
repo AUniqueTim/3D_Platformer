@@ -52,7 +52,7 @@ public class Toolbox : MonoBehaviour
         cameraState = m_CameraController.CameraState;
         //pelletCount = m_pickUps.pelletCount;
         //pickUpCount = m_pickUps.pickUps;
-        playerPoweredUp = m_PlayerManager.playerPoweredUp;
-        wacManPoweredUp = m_PlayerManager.wacManPoweredUp;
+        playerPoweredUp = Toolbox.Instance.m_pickUps.playerPoweredUp;
+        wacManPoweredUp = Toolbox.Instance.m_pickUps.wacManPoweredUp;
     }
 }

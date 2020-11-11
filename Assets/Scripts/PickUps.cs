@@ -22,6 +22,7 @@ public class PickUps : MonoBehaviour
     //public bool pickedUpPowerUp;
     //public bool pickedUpPellet;
 
+    public int wacManPellets;
     public void Awake()
     {
         
@@ -73,7 +74,7 @@ public class PickUps : MonoBehaviour
                 gameObject.SetActive(false);
 
             }
-            if (spawnPelletAllowed == true && gameObject.tag == "Pellet")
+            if (gameObject.tag == "Pellet")
             {
                 Toolbox.Instance.m_PlayerManager.nbPellets += 1;
 
@@ -110,6 +111,7 @@ public class PickUps : MonoBehaviour
             collision.gameObject.GetComponent<Renderer>().material.SetColor("green", Color.green);
 
             Toolbox.Instance.m_PlayerManager.nbPowerUps += 1;
+            Toolbox.Instance.m_HighScore.points += 50;
             Debug.Log("Player PowerUp Activated");
 
             //powerUpTime = Time.time;
@@ -117,6 +119,13 @@ public class PickUps : MonoBehaviour
 
 
         }
+        if (collision.gameObject.tag == "WacMan" && gameObject.tag == "Pellet")
+        {
+            wacManPellets += 1;
+            Toolbox.Instance.m_HighScore.wacManPoints += 10;
+            Toolbox.Instance.m_PlayerManager.nbPellets += 1;
+        }
+            
         //pickedUpPellet = false;
         //pickedUpPowerUp = false;
     }

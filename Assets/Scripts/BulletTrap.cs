@@ -90,7 +90,7 @@ public class BulletTrap : MonoBehaviour
             if (bulletHit.collider.gameObject.name == "Player" || bulletHit.collider.gameObject.name == "WacMan" && !bulletInstantiated)
             {
 
-                bulletClone = Instantiate(bullet, gameObject.transform.position, gameObject.transform.rotation,bulletCloneParent);
+                bulletClone = Instantiate(bullet, bulletCloneParent,false);
                 if (!bulletClone.gameObject.activeInHierarchy)
                 {
                     bulletClone.gameObject.SetActive(true);

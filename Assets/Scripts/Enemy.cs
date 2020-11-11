@@ -57,12 +57,12 @@ public class Enemy : MonoBehaviour
         
 
         Debug.DrawRay(playerDistanceRay.origin, playerDistanceRay.direction * distance, Color.cyan, 1f);
-        //gameObject.transform.Translate(playerDistanceRay.direction * enemySpeed * Time.deltaTime);  //This line chases player.
-        gameObject.transform.Translate(powerUpDetectionRay.direction * enemySpeed * Time.deltaTime);// This line chases (FIRST ONLY) PowerUp.
-        if (gameObject.tag == "PowerUp")
-        {
-            powerUpPrefabClone = gameObject;
-        }
+        gameObject.transform.Translate(playerDistanceRay.direction * enemySpeed * Time.deltaTime);  //This line chases player.
+        //gameObject.transform.Translate(powerUpDetectionRay.direction * enemySpeed * Time.deltaTime);// This line chases (FIRST ONLY) PowerUp.
+        //if (gameObject.tag == "PowerUp")
+        //{
+        //    powerUpPrefabClone = gameObject;
+        //}
 
         Debug.DrawRay(playerDetectionDistance.origin, Vector3.forward.normalized * distance, Color.green);
         Debug.DrawRay(playerDistanceRay.origin, direction.normalized * distance, Color.red);
@@ -117,11 +117,11 @@ public class Enemy : MonoBehaviour
                     gameObject.transform.Translate(playerDistanceRay.direction * enemySpeed * Time.deltaTime);
                 }
 
-                else if (wacManPoweredUp && collidingWithPlayer)
+                if (wacManPoweredUp && collidingWithPlayer)
                     {
                         player.transform.position = new Vector3(0, 0, 0);
                     }
-                else if (playerPoweredUp)
+                if (playerPoweredUp)
                 {
                     gameObject.transform.Translate(-playerDistanceRay.direction * enemySpeed * Time.deltaTime);
 
@@ -156,14 +156,14 @@ public class Enemy : MonoBehaviour
             //1UP UI
             Toolbox.Instance.m_PlayerManager.playerLives += 1;
             enemySpeed = originalEnemySpeed;
-            playerPoweredUp = false;
+            Toolbox.Instance.m_PlayerManager.playerPoweredUp = false;
         }
         else if (collision.gameObject.tag == "Player" && !playerPoweredUp  && wacManPoweredUp)
         {
             Toolbox.Instance.m_PlayerManager.playerLives -= 1;
             Debug.Log("WacMan killed player.");
             wacMan.transform.position = new Vector3(Random.Range(-100,100),0 );
-            wacManPoweredUp = false;
+            Toolbox.Instance.m_PlayerManager.wacManPoweredUp = false;
             enemySpeed = originalEnemySpeed;
             if (Toolbox.Instance.m_PlayerManager.playerLives <= 0)
             {

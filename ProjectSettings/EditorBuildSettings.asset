@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/TestScene_01.unity
+    guid: 75da81afdcf99c042a5fbf8cd423c614
+  - enabled: 1
     path: Assets/Scenes/DiceRoll.unity
     guid: 6207c8375f7a9204a9ac6dbcda45bfc6
   m_configObjects: {}

@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MainCanvasUI : MonoBehaviour
 {
+
+    [SerializeField] private GameObject startCanvas;
+    [SerializeField] private GameObject mainCanvas;
     public void Quit()
     {
         Application.Quit();
@@ -14,5 +17,11 @@ public class MainCanvasUI : MonoBehaviour
     {
         SceneManager.LoadScene("TestScene_01");
         Debug.Log("Loaded Test Scene 1");
+    }
+
+    public void StartGame()
+    {
+        startCanvas.gameObject.SetActive(false);
+        mainCanvas.gameObject.SetActive(true);
     }
 }

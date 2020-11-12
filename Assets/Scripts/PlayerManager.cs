@@ -16,6 +16,8 @@ public class PlayerManager : MonoBehaviour
     public bool wacManPoweredUp;
     public float playerPowerUpTime;
 
+    public bool playedPowerUpSound;
+
     public int playerLives;
     public TextMeshProUGUI oneUps;
 
@@ -76,11 +78,13 @@ public class PlayerManager : MonoBehaviour
 
         if (playerPoweredUp == false)
         {
-            return;
+            playedPowerUpSound = false;
         }
-        else if (playerPoweredUp == true)
+        if (playerPoweredUp == true)
         {
+            playedPowerUpSound = false;
             Debug.Log("Player Powered Up.");
+            //playedPowerUpSound = false;  //without this line sound fx doesn't play at all, with it, sfx plays repeatedley
         }
         
         //UI

@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
     
     [SerializeField] private GameObject wacMan;
-    
+    public bool bulletHit;
 
 
     public void OnCollisionEnter(Collision collision)
@@ -19,6 +19,7 @@ public class Bullet : MonoBehaviour
             gameObject.SetActive(false);
             Toolbox.Instance.m_BulletTrap.bulletInstantiated = false;
             Toolbox.Instance.m_BulletTrap.SpawnBullet();
+            bulletHit = true;
         }
         else if (collision.gameObject.tag == "WacMan")
         {
@@ -27,13 +28,16 @@ public class Bullet : MonoBehaviour
             Debug.Log("Bullet hit WacMan.");
             Toolbox.Instance.m_BulletTrap.bulletInstantiated = false;
             Toolbox.Instance.m_BulletTrap.SpawnBullet();
+            bulletHit = true;
         }
         else if (collision.gameObject.tag == "WorldGeometry")
         {
             Toolbox.Instance.m_BulletTrap.bulletInstantiated = false;
             Toolbox.Instance.m_BulletTrap.SpawnBullet();
+            bulletHit = true;
             gameObject.SetActive(false);
         } 
+        else { bulletHit = false; }
         //else if (collision.gameObject)
         //{
            

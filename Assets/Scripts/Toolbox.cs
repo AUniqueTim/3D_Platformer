@@ -20,7 +20,32 @@ public class Toolbox : MonoBehaviour
 
     public bool playerPoweredUp;
     public bool wacManPoweredUp;
+
+    //Audio
     
+    public AudioListener audioListener;
+    public AudioSource audioSource;
+    //public AudioSource oneUpSound;
+    //public AudioSource pelletPickUpSound;
+    //public AudioSource powerUpPickUpSound;
+    //public AudioSource playerDeathSound;
+    //public AudioSource wacManDeathSound;
+    //public AudioSource music;
+    //public AudioSource bulletFireSound;
+    //public AudioSource bulletHitSound;
+    //public AudioSource gameOverSound;
+    //public AudioSource winSound;
+
+    public AudioClip oneUpSound;
+    public AudioClip pelletPickUpSound;
+    public AudioClip powerUpPickUpSound;
+    public AudioClip playerDeathSound;
+    public AudioClip wacManDeathSound;
+    public AudioClip music;
+    public AudioClip bulletFireSound;
+    public AudioClip bulletHitSound;
+    public AudioClip gameOverSound;
+    public AudioClip winSound;
 
     public static Toolbox instance;
     public static Toolbox Instance
@@ -44,15 +69,52 @@ public class Toolbox : MonoBehaviour
     {
         instance = this;
         cameraState = m_CameraController.CameraState;
-        
+        audioSource = GetComponent<AudioSource>();
+
     }
     public void Update()
     {
-
         cameraState = m_CameraController.CameraState;
-        //pelletCount = m_pickUps.pelletCount;
-        //pickUpCount = m_pickUps.pickUps;
         playerPoweredUp = Toolbox.Instance.m_pickUps.playerPoweredUp;
         wacManPoweredUp = Toolbox.Instance.m_pickUps.wacManPoweredUp;
+
+
+        //Bullet Sounds
+        if (m_BulletTrap.bulletFired == true)
+        {
+            audioSource.PlayOneShot(bulletFireSound);
+            m_BulletTrap.bulletFired = false;
+        }
+        else if (m_Bullet.bulletHit == true)
+        {
+            audioSource.PlayOneShot(bulletHitSound);
+            m_Bullet.bulletHit = false;
+        }
+        else
+        {
+            m_BulletTrap.bulletFired = false;
+            m_Bullet.bulletHit = false;
+        }
+        //PowerUp Sounds
+        if (!m_PlayerManager.playedPowerUpSound && m_PlayerManager.playerPoweredUp)
+        {
+            audioSource.PlayOneShot(powerUpPickUpSound, .5f);
+            m_PlayerManager.playedPowerUpSound = true;
+           
+        }
+        else if (m_PlayerManager.playedPowerUpSound)
+        {
+            m_PlayerManager.playedPowerUpSound = false;
+            audioSource.PlayOneShot(powerUpPickUpSound, 0f);
+        }
+        if (m_enemy.wacManPoweredUp)
+        {
+            audioSource.PlayOneShot(powerUpPickUpSound, .5f);
+        }
+        else if (!m_enemy.wacManPoweredUp)
+        {
+            return;
+        }
+
     }
 }

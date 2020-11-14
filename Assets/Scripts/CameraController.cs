@@ -12,7 +12,7 @@ public class CameraController : MonoBehaviour
     
     void Start()
     {
-        //mainCamera = Camera.main;
+        mainCamera = Camera.main;
         CameraState = 1;
         mainCamera.enabled = true;      
         topCamera.enabled = false;

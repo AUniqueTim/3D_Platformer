@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    
     [SerializeField] private GameObject wacMan;
     public bool bulletHit;
-
 
     public void OnCollisionEnter(Collision collision)
     {
@@ -21,16 +19,16 @@ public class Bullet : MonoBehaviour
             Toolbox.Instance.m_BulletTrap.SpawnBullet();
             bulletHit = true;
         }
-        else if (collision.gameObject.tag == "WacMan")
+        if (collision.gameObject.tag == "WacMan")
         {
             wacMan.transform.position = new Vector3(Random.Range(-100, 100), 0);
-            gameObject.SetActive(false);//Destroy(gameObject); //particle effect.
+            gameObject.SetActive(false);
             Debug.Log("Bullet hit WacMan.");
             Toolbox.Instance.m_BulletTrap.bulletInstantiated = false;
             Toolbox.Instance.m_BulletTrap.SpawnBullet();
             bulletHit = true;
         }
-        else if (collision.gameObject.tag == "WorldGeometry")
+        if (collision.gameObject.tag == "WorldGeometry")
         {
             Toolbox.Instance.m_BulletTrap.bulletInstantiated = false;
             Toolbox.Instance.m_BulletTrap.SpawnBullet();
@@ -38,13 +36,7 @@ public class Bullet : MonoBehaviour
             gameObject.SetActive(false);
         } 
         else { bulletHit = false; }
-        //else if (collision.gameObject)
-        //{
-           
-        //    Toolbox.Instance.m_BulletTrap.bulletInstantiated = false;
-        //    Toolbox.Instance.m_BulletTrap.SpawnBullet();
-        //    gameObject.SetActive(false);//Destroy(gameObject); //Particle Effect.
-        //}
+
 
     }
 }

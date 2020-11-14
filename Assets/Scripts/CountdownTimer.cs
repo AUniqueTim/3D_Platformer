@@ -17,13 +17,13 @@ public class CountdownTimer : MonoBehaviour
 
    [SerializeField] private float t;
 
-    // Start is called before the first frame update
+    
     void Start()
     {
         startTime = Time.time + 120; //Time in seconds to count down from.
     }
 
-    // Update is called once per frame
+   
     void Update()
     {
         if (timerFinished)      //Timer finished bool.
@@ -60,6 +60,7 @@ public class CountdownTimer : MonoBehaviour
     }
     public void GameOver()
     {
+        Toolbox.Instance.m_CameraController.CameraState = 3;
         gameOverPanel.SetActive(true);
         gameObject.SetActive(false);
     }

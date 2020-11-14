@@ -9,6 +9,7 @@ public class BulletTrap : MonoBehaviour
     [SerializeField] private float maxDistance;
     [SerializeField] private Rigidbody bullet;
     [SerializeField] private Rigidbody bulletClone;
+    [SerializeField] private ParticleSystem bulletFirePE;
     public int bulletSpeed;
     public bool bulletInstantiated;
     Vector3 forwardDirection = Vector3.forward;
@@ -22,6 +23,10 @@ public class BulletTrap : MonoBehaviour
     {
         Debug.DrawRay(transform.position, forwardDirection * maxDistance, Color.red);
         SpawnBullet();
+    }
+    private void FixedUpdate()
+    {
+        bulletFirePE.Stop();
     }
     public void SpawnBullet()
     {
@@ -39,11 +44,13 @@ public class BulletTrap : MonoBehaviour
                 {
                     bulletClone.gameObject.SetActive(true);
                 }
-                bulletClone.AddForce(forwardDirection * bulletSpeed * Time.deltaTime); //particle effect. use raycast from walls?
+                bulletClone.AddForce(forwardDirection * bulletSpeed * Time.deltaTime); 
                 bulletInstantiated = true;
                 Debug.Log("Fired bullet.");
                 bulletFired = true;
+                bulletFirePE.Play();
             }
+            else { bulletFired = false; }
         }
     }
 }

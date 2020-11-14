@@ -21,31 +21,33 @@ public class Toolbox : MonoBehaviour
     public bool playerPoweredUp;
     public bool wacManPoweredUp;
 
+    [SerializeField] private bool pickedUpPellet;
+
     //Audio
-    
+
     public AudioListener audioListener;
     public AudioSource audioSource;
-    //public AudioSource oneUpSound;
-    //public AudioSource pelletPickUpSound;
-    //public AudioSource powerUpPickUpSound;
-    //public AudioSource playerDeathSound;
-    //public AudioSource wacManDeathSound;
-    //public AudioSource music;
-    //public AudioSource bulletFireSound;
-    //public AudioSource bulletHitSound;
-    //public AudioSource gameOverSound;
-    //public AudioSource winSound;
+    public AudioSource oneUpSound;
+    public AudioSource pelletPickUpSound;
+    public AudioSource playerPoweredUpSource;
+    public AudioSource playerDeathSound;
+    public AudioSource wacManDeathSound;
+    public AudioSource music;
+    public AudioSource bulletFireSound;
+    public AudioSource bulletHitSound;
+    public AudioSource gameOverSound;
+    public AudioSource winSound;
 
-    public AudioClip oneUpSound;
-    public AudioClip pelletPickUpSound;
+    //public AudioClip oneUpSound;
+    public AudioClip pelletPickUpSoundClip;
     public AudioClip powerUpPickUpSound;
-    public AudioClip playerDeathSound;
-    public AudioClip wacManDeathSound;
-    public AudioClip music;
-    public AudioClip bulletFireSound;
-    public AudioClip bulletHitSound;
-    public AudioClip gameOverSound;
-    public AudioClip winSound;
+    public AudioClip playerDeathSoundClip;
+    public AudioClip wacManDeathSoundClip;
+    //public AudioClip music;
+    public AudioClip bulletFireSoundClip;
+    public AudioClip bulletHitSoundClip;
+    //public AudioClip gameOverSound;
+    //public AudioClip winSound;
 
     public static Toolbox instance;
     public static Toolbox Instance
@@ -82,31 +84,18 @@ public class Toolbox : MonoBehaviour
         //Bullet Sounds
         if (m_BulletTrap.bulletFired == true)
         {
-            audioSource.PlayOneShot(bulletFireSound);
-            m_BulletTrap.bulletFired = false;
+
+            audioSource.PlayOneShot(bulletFireSoundClip);
+            //m_BulletTrap.bulletFired = false;
         }
-        else if (m_Bullet.bulletHit == true)
+        if (m_Bullet.bulletHit == true)
         {
-            audioSource.PlayOneShot(bulletHitSound);
-            m_Bullet.bulletHit = false;
+            audioSource.PlayOneShot(bulletHitSoundClip);
+            //m_Bullet.bulletHit = false;
         }
-        else
-        {
-            m_BulletTrap.bulletFired = false;
-            m_Bullet.bulletHit = false;
-        }
-        //PowerUp Sounds
-        if (!m_PlayerManager.playedPowerUpSound && m_PlayerManager.playerPoweredUp)
-        {
-            audioSource.PlayOneShot(powerUpPickUpSound, .5f);
-            m_PlayerManager.playedPowerUpSound = true;
-           
-        }
-        else if (m_PlayerManager.playedPowerUpSound)
-        {
-            m_PlayerManager.playedPowerUpSound = false;
-            audioSource.PlayOneShot(powerUpPickUpSound, 0f);
-        }
+
+        //PowerUp Sound
+        
         if (m_enemy.wacManPoweredUp)
         {
             audioSource.PlayOneShot(powerUpPickUpSound, .5f);
@@ -116,5 +105,29 @@ public class Toolbox : MonoBehaviour
             return;
         }
 
+        //PickUp Sound
+        if (m_pickUps.pickedUpPellet)
+        {
+            //audioSource = pelletPickUpSound;
+            audioSource.PlayOneShot(pelletPickUpSoundClip, .5f);
+            //m_pickUps.pickedUpPellet = false;
+        }
+        //else if (!m_pickUps.pickedUpPellet)
+        //{
+
+        //    //pelletPickUpSound.Stop();
+        //    return;
+            
+        //}
+
+        //WacMan Death Sound
+
+        if (m_enemy.wacManDied)
+        {
+            audioSource = wacManDeathSound;
+            audioSource.PlayOneShot(wacManDeathSoundClip);
+            
+        }
     }
+  
 }

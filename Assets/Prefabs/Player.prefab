@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 548499438489663450}
   - component: {fileID: 548499438489663013}
   - component: {fileID: 548499438489663012}
+  - component: {fileID: 465551437}
   m_Layer: 0
   m_Name: TopCamera
   m_TagString: MainCamera
@@ -26,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 548499438489663015}
   m_LocalRotation: {x: 0.44253165, y: 0.5494281, z: -0.4338561, w: 0.5604136}
-  m_LocalPosition: {x: -1.68, y: 8.67, z: 0.19000006}
+  m_LocalPosition: {x: -1.85, y: 9.384, z: 0.187}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 548499439262558878}
@@ -57,7 +58,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 40
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -88,6 +89,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 548499439262558878}
+--- !u!65 &465551437
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548499438489663015}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.48557997, y: 0.44605666, z: 0.33854944}
+  m_Center: {x: -0.0034543576, y: -0.0030900391, z: -0.027210295}
 --- !u!1 &548499438784199982
 GameObject:
   m_ObjectHideFlags: 0
@@ -99,7 +113,7 @@ GameObject:
   - component: {fileID: 548499438784199981}
   - component: {fileID: 548499438784199980}
   - component: {fileID: 548499438784199983}
-  - component: {fileID: 285312861}
+  - component: {fileID: 1915802628}
   m_Layer: 0
   m_Name: BackCamera
   m_TagString: MainCamera
@@ -177,8 +191,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 548499439262558878}
---- !u!135 &285312861
-SphereCollider:
+--- !u!65 &1915802628
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -186,10 +200,10 @@ SphereCollider:
   m_GameObject: {fileID: 548499438784199982}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Radius: 0.2
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 0.41907895, z: 0.49364632}
+  m_Center: {x: 5.635049e-11, y: -0.033107515, z: 0.018179031}
 --- !u!1 &548499439031731875
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,7 +365,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 32
+  m_Constraints: 96
   m_CollisionDetection: 2
 --- !u!114 &548499439262558949
 MonoBehaviour:
@@ -374,9 +388,9 @@ MonoBehaviour:
   jumpAllowed: 0
   isJumping: 0
   grounded: 0
-  jumpHeight: 3
+  jumpHeight: 5
   jumpSpeed: 7
-  fallSpeed: 1
+  fallSpeed: 10
 --- !u!114 &548499439262558879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,11 +411,17 @@ MonoBehaviour:
   playerPoweredUp: 0
   wacManPoweredUp: 0
   playerPowerUpTime: 10
+  playPowerUpSound: 0
   playerLives: 3
   oneUps: {fileID: 0}
   winPanel: {fileID: 0}
   losePanel: {fileID: 0}
+  mainCanvas: {fileID: 0}
   wacMan: {fileID: 0}
+  pickedUpPellet: 0
+  ghostIcon01: {fileID: 0}
+  ghostIcon02: {fileID: 0}
+  ghostIcon03: {fileID: 0}
 --- !u!114 &548499439270628272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -428,6 +448,7 @@ GameObject:
   - component: {fileID: 6210214261558054}
   - component: {fileID: 4015464557148701827}
   - component: {fileID: 1179165698309877833}
+  - component: {fileID: 1315261493}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Untagged
@@ -498,3 +519,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &1315261493
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819022383468401052}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.8402672
+  m_Height: 1.8621626
+  m_Direction: 1
+  m_Center: {x: -0.00445804, y: -0.095272034, z: 0}

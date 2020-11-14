@@ -19,12 +19,20 @@ public class EnemyManager : MonoBehaviour
         if (wacManLives <= 0)
         {
             wacMan.gameObject.SetActive(false);
+            Toolbox.Instance.m_PlayerManager.playerWon = true;
+            Toolbox.Instance.m_PlayerManager.GameOver();
         }
 
         enemySpeed = Toolbox.Instance.m_enemy.enemySpeed;
 
         //UI
-        if (wacManLives == 2)
+        if(wacManLives == 3)
+        {
+            wacManIcon01.gameObject.SetActive(true);
+            wacManIcon02.gameObject.SetActive(true);
+            wacManIcon03.gameObject.SetActive(true);
+        }
+        else if (wacManLives == 2)
         {
             wacManIcon01.gameObject.SetActive(false);
             wacManIcon02.gameObject.SetActive(true);

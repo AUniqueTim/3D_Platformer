@@ -113,15 +113,16 @@ MonoBehaviour:
   pelletPrefab: {fileID: 2285245689369685983, guid: ebb4c4fb4e93c804eb7392e13c12d683,
     type: 3}
   powerUpPrefab: {fileID: 3886169537750726063}
+  powerUpPrefabClone: {fileID: 3886169537750726063}
   spawnTransform: {fileID: 4035634774548974084, guid: 1933f5f23669d094aacb0adee4aadde3,
     type: 3}
   spawnPelletAllowed: 0
   powerUpTime: 10
   wacManPowerUpTime: 0
-  pelletCount: 0
   wacManPoweredUp: 0
   playerPoweredUp: 0
-  pickUps: 0
+  pickedUpPellet: 0
+  wacManPellets: 0
 --- !u!54 &8761471870253885616
 Rigidbody:
   m_ObjectHideFlags: 0

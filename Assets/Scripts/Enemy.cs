@@ -4,12 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    //Raycast forward follow at speed until raycast length less than minimum.
-    //Adjust rotation when too close to an object.
-    //Cast new ray to follow.
-
-    //On Player Sight, turn off Raycast, follow player, slowly increasing speed
-    // Unless Player == PowerUpped, in which cast leave raycast on (continue patrol).
+    
 
     [SerializeField] private GameObject wacMan;
     [SerializeField] private LayerMask layerMask;
@@ -31,6 +26,7 @@ public class Enemy : MonoBehaviour
     Ray playerDistanceRay;
 
     public bool collidingWithPlayer;
+    public bool wacManDied;
 
     public void Awake()
     {
@@ -58,13 +54,11 @@ public class Enemy : MonoBehaviour
 
         Ray playerDistanceRay = new Ray(transform.position, direction.normalized * playerDetectionDistanceFloat);
         Ray playerDetectionDistance = new Ray(transform.position, Vector3.forward.normalized * playerDetectionDistanceFloat);
-        Ray powerUpDetectionRay = new Ray(powerUpPrefabClone.gameObject.transform.position, directiontoPowerUp.normalized * distanceToPowerUp);
-       // Ray pelletDetectionRay = new Ray (gameObject.tag="Pellet")
+        Ray powerUpDetectionRay = new Ray(-powerUpPrefabClone.gameObject.transform.position, directiontoPowerUp.normalized * distanceToPowerUp);
+        
 
         Debug.DrawRay(playerDistanceRay.origin, playerDistanceRay.direction * distance, Color.cyan, 1f);
-        //gameObject.transform.Translate(playerDistanceRay.direction * enemySpeed * Time.deltaTime);  //This line chases player.
-        gameObject.transform.Translate(powerUpDetectionRay.direction * enemySpeed * Time.deltaTime);// This line chases (FIRST ONLY) PowerUp.
-
+        gameObject.transform.Translate(playerDistanceRay.direction * enemySpeed * Time.deltaTime);  //This line chases player.
 
         Debug.DrawRay(playerDetectionDistance.origin, Vector3.forward.normalized * distance, Color.green);
         Debug.DrawRay(playerDistanceRay.origin, direction.normalized * distance, Color.red);
@@ -78,15 +72,11 @@ public class Enemy : MonoBehaviour
 
                 {
                     gameObject.transform.Translate(-playerDetectionDistance.direction * enemySpeed * Time.deltaTime);
-                    //enemySpeed +=1;
-                    //playerHit.collider.gameObject.SetActive(false);
-                    Toolbox.Instance.m_CameraController.CameraState = 3;
                     Debug.Log("Player Detection Distance ray Hit.");
                 }
 
             if (wacManPoweredUp)
                 {
-               
                     enemySpeed += 1;
                     Debug.Log("Raised Enemy speed.");
                 }
@@ -111,7 +101,6 @@ public class Enemy : MonoBehaviour
         {
             if (hit.collider.gameObject.GetComponent<Renderer>() != null && hit.collider.gameObject.tag=="Player")
             {
-                //hit.collider.gameObject.GetComponent<Renderer>().material.color = Color.red;
                 Debug.Log("PlayerDistanceRay Hit Player.");
 
                 if (wacManPoweredUp)
@@ -119,14 +108,13 @@ public class Enemy : MonoBehaviour
                     gameObject.transform.Translate(playerDistanceRay.direction * enemySpeed * Time.deltaTime);
                 }
 
-                else if (wacManPoweredUp && collidingWithPlayer)
+                if (wacManPoweredUp && collidingWithPlayer)
                     {
                         player.transform.position = new Vector3(0, 0, 0);
                     }
-                else if (playerPoweredUp)
+                if (playerPoweredUp)
                 {
                     gameObject.transform.Translate(-playerDistanceRay.direction * enemySpeed * Time.deltaTime);
-
                 }
             }
             Debug.DrawRay(playerDistanceRay.origin, direction, Color.magenta, 10, true);
@@ -135,7 +123,7 @@ public class Enemy : MonoBehaviour
         Debug.DrawRay(powerUpDetectionRay.origin, powerUpDetectionRay.direction * distanceToPowerUp, Color.black);
         if (Physics.Raycast(powerUpDetectionRay, out powerUpHit, distanceToPowerUp, layerMask) && powerUpHit.collider.gameObject.tag=="PowerUp")
         {
-            //gameObject.transform.Translate(powerUp.position -transform.position * distanceToPowerUp * Time.deltaTime);
+            gameObject.transform.Translate(powerUp.position -transform.position * distanceToPowerUp * Time.deltaTime);
             
             powerUpHit.collider.gameObject.GetComponent<MeshRenderer>().material.SetColor("Yellow", Color.yellow);
             Debug.Log("WacMan PowerUp Detection Ray Hit.");
@@ -163,18 +151,20 @@ public class Enemy : MonoBehaviour
             //1UP UI
             Toolbox.Instance.m_PlayerManager.playerLives += 1;
             enemySpeed = originalEnemySpeed;
-            playerPoweredUp = false;
+            Toolbox.Instance.m_PlayerManager.playerPoweredUp = false;
+            wacManDied = true;
         }
         else if (collision.gameObject.tag == "Player" && !playerPoweredUp  && wacManPoweredUp)
         {
             Toolbox.Instance.m_PlayerManager.playerLives -= 1;
             Debug.Log("WacMan killed player.");
             wacMan.transform.position = new Vector3(Random.Range(-100,100),0 );
-            wacManPoweredUp = false;
+            Toolbox.Instance.m_PlayerManager.wacManPoweredUp = false;
             enemySpeed = originalEnemySpeed;
             if (Toolbox.Instance.m_PlayerManager.playerLives <= 0)
             {
                 collision.gameObject.SetActive(false);
+                Toolbox.Instance.m_PlayerManager.playerLost = true;
                 Toolbox.Instance.m_PlayerManager.GameOver();
             }
 
@@ -188,5 +178,9 @@ public class Enemy : MonoBehaviour
         {
             return;
         }
+    }
+    private void FixedUpdate()
+    {
+        //wacManDied = false;
     }
 }

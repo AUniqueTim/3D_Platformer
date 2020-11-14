@@ -20,8 +20,9 @@ public class PickUps : MonoBehaviour
     public bool playerPoweredUp;
 
     //public bool pickedUpPowerUp;
-    //public bool pickedUpPellet;
+    public bool pickedUpPellet;
 
+    public int wacManPellets;
     public void Awake()
     {
         
@@ -65,34 +66,31 @@ public class PickUps : MonoBehaviour
             if (spawnPelletAllowed == true && gameObject.tag=="PowerUp")
             {
                 powerUpPrefabClone = Instantiate(powerUpPrefab, new Vector3(Random.Range(-25,25), Random.Range(1.75f,10), Random.Range(-25,25)), powerUpPrefab.transform.rotation);
-                
-                //pickUps += 1;
                 Toolbox.Instance.m_PlayerManager.nbPowerUps += 1;
-                //pickedUpPowerUp = true;
                 Debug.Log("Spawned Pellet:" + collision.gameObject.name);
                 gameObject.SetActive(false);
 
             }
-            if (spawnPelletAllowed == true && gameObject.tag == "Pellet")
+            if (gameObject.tag == "Pellet")
             {
                 Toolbox.Instance.m_PlayerManager.nbPellets += 1;
-
+                //Toolbox.Instance.audioSource = Toolbox.Instance.pelletPickUpSound;
+                //Toolbox.Instance.audioSource.Play(0);
                 //pelletCount += 1;
-                //pickedUpPellet = true;
+                pickedUpPellet = true;
                 Toolbox.Instance.m_HighScore.points += 10;
+
                 Debug.Log("Pellet consumed.");
                 gameObject.SetActive(false);
 
             }
-
+            
         }
         if (gameObject.tag=="PowerUp" && collision.gameObject.tag == "WacMan")
         {
             Toolbox.Instance.m_enemy.wacManPoweredUp = true;
             Toolbox.Instance.m_PlayerManager.wacManPoweredUp = true;
-            //wacManPoweredUp = true;
             collision.gameObject.GetComponent<Renderer>().material.SetColor("white", Color.white);
-            
             Debug.Log("WacMan PowerUp Activated, Total PickUps:" + Toolbox.Instance.m_PlayerManager.nbPickUps);
             powerUpPrefabClone = Instantiate(powerUpPrefab, new Vector3(Random.Range(-25, 25), Random.Range(1.75f, 5), Random.Range(-25, 25)), powerUpPrefab.transform.rotation);
 
@@ -104,20 +102,32 @@ public class PickUps : MonoBehaviour
         }
         if (gameObject.tag =="PowerUp" && collision.gameObject.tag == "Player")
         {
-            //powerUps += 1;
             Toolbox.Instance.m_enemy.playerPoweredUp = true;
             Toolbox.Instance.m_PlayerManager.playerPoweredUp = true;
             collision.gameObject.GetComponent<Renderer>().material.SetColor("green", Color.green);
 
             Toolbox.Instance.m_PlayerManager.nbPowerUps += 1;
+            Toolbox.Instance.m_HighScore.points += 50;
             Debug.Log("Player PowerUp Activated");
-
+            Toolbox.Instance.audioSource = Toolbox.Instance.playerPoweredUpSource;
+            Toolbox.Instance.audioSource.Play();
             //powerUpTime = Time.time;
             gameObject.SetActive(false);
 
 
         }
-        //pickedUpPellet = false;
+        if (collision.gameObject.tag == "WacMan" && gameObject.tag == "Pellet")
+        {
+            wacManPellets += 1;
+            Toolbox.Instance.m_HighScore.wacManPoints += 10;
+            Toolbox.Instance.m_PlayerManager.nbPellets += 1;
+            pickedUpPellet = true;
+        }
+
+
         //pickedUpPowerUp = false;
+        //pickedUpPellet = false;
+
     }
+
 }

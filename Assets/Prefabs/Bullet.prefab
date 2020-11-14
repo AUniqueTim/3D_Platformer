@@ -176,6 +176,7 @@ GameObject:
   - component: {fileID: 6626163567790941177}
   - component: {fileID: 6626163567790941179}
   - component: {fileID: 5508911555088806730}
+  - component: {fileID: 6626163567098729653}
   m_Layer: 9
   m_Name: Bullet
   m_TagString: Untagged
@@ -192,7 +193,7 @@ Transform:
   m_GameObject: {fileID: 6284128389484671132}
   m_LocalRotation: {x: 0.7071068, y: -0.7071068, z: 0.000024694134, w: 0.000024694134}
   m_LocalPosition: {x: 50.226215, y: 3.2693865, z: -11.132593}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 4492923823022354091}
   - {fileID: 6108526996352748061}
@@ -227,7 +228,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ead00690c274f8c4882e0df3735ed3ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wacMan: {fileID: 8967186177231067308, guid: 1dbc3af12814d414989b886252909101, type: 3}
+  wacMan: {fileID: 0}
+  bulletHit: 0
 --- !u!64 &5508911555088806730
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -242,3 +244,16 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5329809369554974377, guid: 661772c090032804398f306c0e9b005d, type: 3}
+--- !u!65 &6626163567098729653
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6284128389484671132}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1301135, y: 0.13401367, z: 0.3740109}
+  m_Center: {x: 0.057528537, y: -0.39060724, z: 0.09923341}

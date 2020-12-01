@@ -31302,18 +31302,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6ef98d4c489ea645a33b8bd0a91a2b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1576132679 stripped
+--- !u!114 &1576132678
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 548499439262558949, guid: db95745532a68a2458daf518149d00f6,
-    type: 3}
-  m_PrefabInstance: {fileID: 548499437728500442}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1576132670}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b25c5a76abf1d149bd5f298768c4c89, type: 3}
+  m_Script: {fileID: 11500000, guid: b075914e8f72a7045a86765c6e039330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1839322771}
+  player: {fileID: 1576132670}
+  playerRB: {fileID: 1576132672}
+  playerSpeed: 0
+  walkSpeed: 3
+  runSpeed: 7
+  jumpAllowed: 0
+  isJumping: 0
+  grounded: 0
+  jumpHeight: 5
+  jumpSpeed: 3
+  fallSpeed: 7
 --- !u!43 &1577725349
 Mesh:
   m_ObjectHideFlags: 0
@@ -33536,11 +33548,11 @@ MonoBehaviour:
   m_Bullet: {fileID: 962492232}
   m_BulletTrap: {fileID: 1936997066}
   m_pickUps: {fileID: 1987554617}
-  m_PlatformerController: {fileID: 1576132679}
+  m_PlatformerController: {fileID: 1576132678}
   m_PlayerManager: {fileID: 1576132677}
   m_CameraController: {fileID: 1839322774}
   m_enemy: {fileID: 2767335747740873716}
-  m_EnemyManager: {fileID: 1807246589}
+  m_EnemyManager: {fileID: 1807246585}
   m_MainCanvasUI: {fileID: 1410756348}
   m_HighScore: {fileID: 1554556217}
   cameraState: 0
@@ -36026,18 +36038,24 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8021396348262436623}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1807246589 stripped
+--- !u!114 &1807246585
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7606260679056266178, guid: 1dbc3af12814d414989b886252909101,
-    type: 3}
-  m_PrefabInstance: {fileID: 8021396348262436623}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1807246584}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb0b5ea5f60d8734e832473adbb62d92, type: 3}
+  m_Script: {fileID: 11500000, guid: 717e573f530c9774292ef769169fe5b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemySpeed: 3
+  wacManLives: 3
+  wacMan: {fileID: 1807246584}
+  wacManIcon01: {fileID: 1093610464}
+  wacManIcon02: {fileID: 811666412}
+  wacManIcon03: {fileID: 719861337}
 --- !u!1001 &1816943983
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36477,7 +36495,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1839322768}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6de33c1bf7d99840af0e6100bba5392, type: 3}
+  m_Script: {fileID: 11500000, guid: 67b1dc3af64c09742a6229eea0ea7718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 1839322771}
@@ -43147,7 +43165,8 @@ PrefabInstance:
       propertyPath: gameOverPanel
       value: 
       objectReference: {fileID: 517505942}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 548499439262558949, guid: db95745532a68a2458daf518149d00f6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: db95745532a68a2458daf518149d00f6, type: 3}
 --- !u!1001 &1132414288146720447
 PrefabInstance:
@@ -43773,7 +43792,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: WacMan
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7606260679056266178, guid: 1dbc3af12814d414989b886252909101, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1dbc3af12814d414989b886252909101, type: 3}
 --- !u!1001 &8584690736834507849
 PrefabInstance:
